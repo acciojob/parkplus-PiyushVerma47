@@ -36,6 +36,10 @@ public class Payment {
         return isPaymentCompleted;
     }
 
+    public Boolean isPaymentCompleted() {
+        return isPaymentCompleted;
+    }
+
     public void setPaymentCompleted(Boolean paymentCompleted) {
         isPaymentCompleted = paymentCompleted;
     }
