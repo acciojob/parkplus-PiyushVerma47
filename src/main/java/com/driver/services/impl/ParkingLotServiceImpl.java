@@ -60,6 +60,19 @@ public class ParkingLotServiceImpl implements ParkingLotService {
         spotRepository1.deleteById(spotId);
     }
 
+    @Override
+    public Spot updateSpot(int parkingLotId, int spotId, int pricePerHour) {
+        ParkingLot parkingLot=parkingLotRepository1.findById(parkingLotId).get();
+        Spot spot=null;
+        List<Spot> spotList=parkingLot.getSpotList();
+        for(Spot profile: spotList){
+            if(profile.getId()==spotId){
+                profile.setPricePerHour(pricePerHour);
+                spot=spotRepository1.save(profile);
+            }
+        }
+        return spot;
+    }
 
 
     @Override
